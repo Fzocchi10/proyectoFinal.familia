@@ -13,10 +13,18 @@ public class Respetable extends Integrante {
 	private Boolean tieneCargoPolitico;
 
 	// constructores
-	public Respetable(String nombre, Integer puntosDeHonor, Boolean cargoPolitico) {
-		super(nombre, puntosDeHonor);
+	public Respetable(Integer id,String nombre, Integer puntosDeHonor, Boolean cargoPolitico) {
+		super(id,nombre, puntosDeHonor);
 		this.titulos = new ArrayList<Titulo>();
 		this.tieneCargoPolitico = cargoPolitico;
+	}
+	
+	public Collection<Titulo> getTitulos(){
+		return this.titulos;
+	}
+	
+	public Boolean getTieneCargoPolitico() {
+		return this.tieneCargoPolitico;
 	}
 
 	// metodos

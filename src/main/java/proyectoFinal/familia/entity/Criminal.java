@@ -10,8 +10,8 @@ public class Criminal extends Integrante {
 	private Collection<Arma> armas;
 
 	// constructores
-	public Criminal(String nombre, Integer puntosDeHonor) {
-		super(nombre, puntosDeHonor);
+	public Criminal(Integer id, String nombre, Integer puntosDeHonor) {
+		super(id,nombre, puntosDeHonor);
 		this.armas = new ArrayList<Arma>();
 	}
 
@@ -43,5 +43,9 @@ public class Criminal extends Integrante {
  	
 	public void add(Arma arma) {
 		this.armas.add(arma);
+	}
+	
+	public Collection<Arma> getArmas(){
+		return this.armas;
 	}
 }

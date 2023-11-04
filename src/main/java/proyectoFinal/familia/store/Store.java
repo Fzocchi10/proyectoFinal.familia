@@ -3,12 +3,12 @@ package proyectoFinal.familia.store;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import proyectoFinal.familia.model.Integrante;
+
+import proyectoFinal.familia.entity.Integrante;
 
 public class Store {
 
 	private static Store instance;
-	
 	private Collection<Integrante>integrantes ;
 	
 	private Store() {
@@ -30,4 +30,22 @@ public class Store {
 		this.integrantes.add(i);
 		return i;
 	}
+	
+	public Collection<Integrante> remove(Integer id) {
+		Integrante integranteAEliminar = Store.getInstance().findById(id);
+		this.integrantes.remove(integranteAEliminar);
+		return this.findAll();
+	}
+	
+	public Integrante findById(Integer id) {
+		return this.integrantes.stream()
+									.filter(i -> i.getId().equals(id))
+									.findAny()
+									.orElse(null);
+	}
+	
+	
+
+	
+	
 }
