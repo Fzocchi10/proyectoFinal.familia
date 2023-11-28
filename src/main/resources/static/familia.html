@@ -8,7 +8,8 @@
 
 <body>	
 	<div class="header">
-		Bienvenido! En esta pagina podra ingresar, eliminar y modificar un integrante como tambien ver la lista
+		Bienvenido! En esta pagina podra ingresar, eliminar y modificar un integrante como 
+		tambien ver la lista
 		completa de integrantes
 		<h1>Usted que operacion desea realizar</h1>
 		
@@ -16,16 +17,26 @@
 
 <div class="cols">
 	<div class="integrante">
+		
+		
 		<div class="agregarCriminal">
 			<p>
 			<h2>Ingresar un nuevo criminal a la familia</h2>
 			<form id="agregarCriminal">
-				<label for="id">Id:</label> 							<input type="int" id="idCriminal"><br>
-				<label for="nombre">Nombre: </label>					<input type="text" id="nombreCriminal"><br>
-				<label for="puntosDeHonor">Puntos de honor:</label> 	<input type="int" id="puntosDeHonorCriminal"><br>
-				<label for="armasr">Armas:</label>						<input type="text" id="armasCriminal"><br>
+				
+				<label for="id">Id:</label>
+				<input type="int" id="aIdCriminal"><br>
+				
+				<label for="nombre">Nombre: </label>
+				<input type="text" id="aNombreCriminal"><br>
+				
+				<label for="puntosDeHonor">Puntos de honor:</label>
+				<input type="int" id="aPuntosDeHonorCriminal"><br>
+				
+				<label for="armas">Armas:</label>
+				<input type="text" id="aArmasCriminal"><br>
 			<br>
-			<button>Agregar</button>
+			<button type="submit">Agregar</button>
 			</form>
 			</p>
 		</div>
@@ -34,10 +45,17 @@
 			<p>
 				<h2>Modificar un criminal de la familia</h2>
 				<form id="modificarCriminal">
-					<label for="id">Id:</label>							 <input type="text" id="idCriminal"><br>
-					<label for="nombre">Nombre:</label>					 <input type="text" id="nombreCriminal"><br>
-					<label for="puntosDeHonor">Puntos de honor: </label> <input type="int" id="puntosDeHonorCriminal"><br>
-					<label for="armasr">Armas:</label>					 <input type="text" id="armasCriminal"><br>
+					<label for="id">Id:</label>	
+					<input type="text" id="midCriminal"><br>
+					
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="mnombreCriminal"><br>
+					
+					<label for="puntosDeHonor">Puntos de honor: </label>
+					<input type="int" id="mpuntosDeHonorCriminal"><br>
+					
+					<label for="armasr">Armas:</label>
+					<input type="text" id="marmasCriminal"><br>
 				<br>
 				<button>Modificar</button>
 				</form>
@@ -47,7 +65,10 @@
 		<div class="eliminarCriminal">
 			<h2>Eliminar criminal</h2>
 			<form id="eliminarCriminal">
-			<label for="eliminar">Ingrese Id:</label> 					<input type="int" class="idCriminal"><br>
+			
+			<label for="eliminar">Ingrese Id:</label>
+			<input type="int" class="idCriminal"><br>
+			
 			<br>
 			<button>Eliminar</button>
 			</form>
@@ -61,13 +82,24 @@
 			<p>
 			<h2>Ingresar un nuevo respetable a la familia</h2>
 			<form id="agregarRespetable">
-				<label for="id">Id: </label>							 <input type="int" id="idRespetable"><br>
-				<label for="nombre">Nombre:</label>						 <input type="text" id="nombreRespetable"><br>
-				<label for="puntosDeHonor">Puntos de honor:</label>		 <input type="int" id="puntosDeHonorRespetable"><br>
-				<label for="titulos">Titulos:</label>					 <input type="text" id="titulosRespetable"><br>
-				<label for="cargos">Cargo Politico:</label>				 <input type="text" id="cargosRespetable"><br>
+				
+				<label for="id">Id: </label>
+				<input type="int" id="idRespetable"><br>
+				
+				<label for="nombre">Nombre:</label>						 
+				<input type="text" id="nombreRespetable"><br>
+				
+				<label for="puntosDeHonor">Puntos de honor:</label>		 
+				<input type="int" id="puntosDeHonorRespetable"><br>
+				
+				<label for="titulos">Titulos:</label>					
+				<input type="text" id="titulosRespetable"><br>
+				
+				<label for="cargos">Cargo Politico:</label>				 
+				<input type="text" id="cargosRespetable"><br>
+				
 				<br>
-				<button>Agregar</button>
+				<button type="submit">Agregar</button>
 				</form>
 			</p>
 		</div>
@@ -76,11 +108,20 @@
 			<p>
 			<h2>Modificar un respetable de la familia</h2>
 				<form id="modificarRespetable">
-				<label for="id">Id:</label>								 <input type="text" id="idRespetable"><br>
-				<label for="nombre">Nombre:</label>						 <input type="text" id="nombreRespetable"><br>
-				<label for="puntosDeHonor">Puntos de honor:</label>		 <input type="int" id="puntosDeHonorRespetable"><br>
-				<label for="titulos">Titulos:</label>					 <input type="text" id="titulosRespetable"><br>
-				<label for="cargos">Cargo Politico:</label>				 <input type="text" id="cargosRespetable"><br>
+				<label for="id">Id:</label>								 
+				<input type="text" id="idRespetable"><br>
+				
+				<label for="nombre">Nombre:</label>						
+				<input type="text" id="nombreRespetable"><br>
+				
+				<label for="puntosDeHonor">Puntos de honor:</label>		
+				<input type="int" id="puntosDeHonorRespetable"><br>
+				
+				<label for="titulos">Titulos:</label>					
+				<input type="text" id="titulosRespetable"><br>
+				
+				<label for="cargos">Cargo Politico:</label>				
+				<input type="text" id="cargosRespetable"><br>
 				<br>
 			<button>Modificar</button>
 			</form>
@@ -91,7 +132,10 @@
 		<div class="eliminarRespetable">
 			<h2>Eliminar respetable</h2>
 			<form id="eliminarRespetable">
-			<label for="eliminar"> Id: </label>							<input type="int" class="idRespetable"><br>
+			
+			<label for="eliminar"> Id: </label>							
+			<input type="int" class="idRespetable"><br>
+			
 			<br>
 			<button>Eliminar</button>
 			</form>
@@ -105,9 +149,9 @@
 	<div class="footer">
 		<h2> Obtener los integrantes de la familia</h2>
 	<br>
-		<button>Enviar</button>
+		<button onclick="listar()">Enviar</button>
 	</div>
 
-<script src="./script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
