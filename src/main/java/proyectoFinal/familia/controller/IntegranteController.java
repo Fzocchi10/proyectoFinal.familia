@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import proyectoFinal.familia.Dto.CriminalDto;
+import proyectoFinal.familia.Dto.RespetableDto;
 import proyectoFinal.familia.entity.Criminal;
 import proyectoFinal.familia.entity.Integrante;
 import proyectoFinal.familia.entity.Respetable;
@@ -25,48 +27,45 @@ public class IntegranteController {
 	}
 	
 	@PostMapping("/agregarRespetable")
-	public Collection<Integrante> agregar (@RequestBody Respetable r) {
-		Respetable existingRespetable = (Respetable) Store.getInstance().findById(r.getId());
+	public CriminalDto agregar (@RequestBody CriminalDto cDto) {
+		Integrante existingCriminal = (Criminal) Store.getInstance()
+													.findById(cDto.getId());
+		if (existingCriminal != null) {
+			return null;
+	    } else {
+	    	Store.getInstance().add(cDto.toModel());
+	        return cDto;
+	    }
+	}
+	
+	@PostMapping("/agregarRespetable")
+	public RespetableDto agregar (@RequestBody RespetableDto rDto) {
+		Integrante existingRespetable = (Respetable) Store.getInstance()
+														.findById(rDto.getId());
 
         	if (existingRespetable != null) {
-        		return Store.getInstance().findAll();
+        		return null;
         	} else {
-        		Store.getInstance().add(r);
-        		return Store.getInstance().findAll();
+        		Store.getInstance().add(rDto.toModel());
+        		return rDto;
         	}	
 	}
 	
-	@PostMapping("/agregarCriminal")
-	public Collection<Integrante> agregar (@RequestBody Criminal r) {
-		Criminal existingRespetable = (Criminal) Store.getInstance().findById(r.getId());
-
-		if (existingRespetable != null) {
-    		return Store.getInstance().findAll();
-    	} else {
-    		Store.getInstance().add(r);
-    		return Store.getInstance().findAll();
-    	}	
-	}
-	
 	@PutMapping("/modificarCriminal")
-	public Collection<Integrante> modificar (@RequestBody Criminal c) {
-		Criminal integranteAModificar = (Criminal) Store.getInstance().findById(c.getId());
+	public void modificar(@RequestBody CriminalDto cDto ) {
+		Integrante existingCriminal =(Criminal) Store.getInstance().findById(cDto.getId());
 		
-			if (integranteAModificar != null) {
-				integranteAModificar.setNombre(c.getNombre());
-			}
-			return Store.getInstance().findAll();
-			
+		if (existingCriminal != null) {
+			existingCriminal.setNombre(cDto.getNombre());
+		}
 	}
-	
 	@PutMapping("/modificarRespetable")
-	public Collection<Integrante> modificar (@RequestBody Respetable r) {
-		Respetable integranteAModificar = (Respetable) Store.getInstance().findById(r.getId());
-			
-			if (integranteAModificar != null) {
-				integranteAModificar.setNombre(r.getNombre());
-			}
-			return Store.getInstance().findAll();
+	public void modificar(@RequestBody RespetableDto rDto ) {
+		Integrante existingRespetable =(Respetable) Store.getInstance().findById(rDto.getId());
+		
+		if (existingRespetable != null) {
+			existingRespetable.setNombre(rDto.getNombre());
+		}
 	}
 	
 	@DeleteMapping("/eliminarIntegrante/{id}")
