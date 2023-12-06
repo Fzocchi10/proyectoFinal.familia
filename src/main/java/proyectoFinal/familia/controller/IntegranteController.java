@@ -26,7 +26,7 @@ public class IntegranteController {
 		 return Store.getInstance().findAll();
 	}
 	
-	@PostMapping("/agregarRespetable")
+	@PostMapping("/agregarCriminal")
 	public CriminalDto agregar (@RequestBody CriminalDto cDto) {
 		Integrante existingCriminal = (Criminal) Store.getInstance()
 													.findById(cDto.getId());
