@@ -1,56 +1,74 @@
 *{
-	padding: 1px;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	
-	
-
+	padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Impact', 'Courier New', sans-serif;
+    -webkit-text-stroke: 0.2px black;
 }
 
 .cols{
 	display: grid;
-	grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 
 .header{
-	height: 100px;
-	text-align: center;
-	font-size: 20px;
-	background-color: whitesmoke;
+	 height: 100px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #555; /* Darker border color */
 }
 
-
+.agregarCriminal,
+.agregarRespetable,
+.modificarCriminal,
+.modificarRespetable,
+.footer,
+.eliminarIntegrante{
+    text-align: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #555; /* Darker border color */
+    margin: 10px; /* Add some spacing between sections */
+    color: rgb(255, 255, 255); /* Text color */
+}
 
 .agregarCriminal,.agregarRespetable{
-	height: 250px;
-	text-align: center;
-	background-color: rgb(120, 243, 120);
+	background-color: #4CAF50; /* Dark green */
 	
 }
 
 .modificarCriminal,.modificarRespetable{
-	background-color: rgb(243, 243, 92);
-	text-align: center;
-	height: 250px;
+	background-color: #FFC107; /* Amber */
 }
-.eliminarCriminal, .eliminarRespetable{
-	background-color: #FF5F40;
-	text-align: center;
-	height: auto;
+
+.eliminarIntegrante{
+	background-color: red;
 }
 
 .footer{
-	height: auto;
-	text-align: center;
-	background-color: whitesmoke;
+	background-color: #333;
 }
 
 button{
-	background-color: whitesmoke;
-	padding: 15px;
-	width: 200px;
-	text-align: center;
-	border-radius: 10%;
+	background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px; /* Use 'px' for border-radius */
+    border: 1px solid #555; /* Darker border color */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+button:hover {
+    background-color: #555; /* Darker background color on hover */
 }

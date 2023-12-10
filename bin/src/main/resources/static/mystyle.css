@@ -1,34 +1,56 @@
 *{
-	background-color: #CEF9F3;
+	padding: 1px;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	
+	
+
+}
+
+.cols{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+
+.header{
+	height: 100px;
 	text-align: center;
-	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	background-color: whitesmoke;
+}
+
+
+
+.agregarCriminal,.agregarRespetable{
+	height: 250px;
+	text-align: center;
+	background-color: rgb(120, 243, 120);
 	
 }
 
-.div1 {
-	height: 20%;
-	background-color: #F7FBFB;
-	font-size: 70px;
-	
+.modificarCriminal,.modificarRespetable{
+	background-color: rgb(243, 243, 92);
+	text-align: center;
+	height: 250px;
+}
+.eliminarCriminal, .eliminarRespetable{
+	background-color: #FF5F40;
+	text-align: center;
+	height: auto;
 }
 
-button  {
-	height: 50px;
-	width: 100px;
+.footer{
+	height: auto;
+	text-align: center;
+	background-color: whitesmoke;
 }
 
-.divListar {
-
-}
-
-.divIngresar {
-	
-}
-
-.divModificar {
-
-}
-
-.divEliminar {
-
+button{
+	background-color: whitesmoke;
+	padding: 15px;
+	width: 200px;
+	text-align: center;
+	border-radius: 10%;
 }

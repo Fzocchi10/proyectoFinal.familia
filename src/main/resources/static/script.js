@@ -1,145 +1,78 @@
+function realizarSolicitud(){
+	axios.get("/familia/integrantes/listar")
+		.then(response => {console.log(response.data);
+		})
+		.catch(error => {
+			console.error("No se pudo obtener la lista:", error);
+		})
+}
 
-// Función para realizar la solicitud JSON
-    function realizarSolicitud() {
-      // URL del endpoint al que deseas hacer la solicitud
-      const url = 'http://localhost:8080/familia/integrantes/listar';
-	// Realizar la solicitud usando fetch()
-      fetch(url)
-        .then(response => response.json()) // Convertir la respuesta a JSON
-        .then(data => {
-          // Manipular los datos recibidos
-          console.log(data); // Mostrar los datos en la consola
-          // Mostrar los datos en el HTML
-          document.getElementById('resultado').innerText = JSON.stringify(data);
-        })
-        .catch(error => {
-          console.error('¡Hubo un error!', error);
-        });
-    }
 
-   
-   
-   function agregarCriminal() {
-    const formulario = document.getElementById('agregarCriminal');
-	const formData = new FormData(formulario);
-    const datos = {}
-    formData.forEach((value, key) => {
-      datos[key] = value;
-    });
-    const datosJSON = JSON.stringify(datos)
-    fetch('http://localhost:8080/familia/integrantes/agregarCriminal', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: datosJSON
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Solicitud POST exitosa:', data);
-      // Aquí puedes realizar acciones adicionales después de una respuesta exitosa
-    })
-    .catch(error => {
-      console.error('Error al realizar la solicitud POST:', error);
-    });
-  }
-  
-   function modificarCriminal() {
-    const formulario = document.getElementById('modificarCriminal');
-    const formData = new FormData(formulario);
-    const datos = {};
-    formData.forEach((value, key) => {
-      datos[key] = value;
-    });
+async function agregarCriminal(){
+	var id = document.getElementById("idAC").value;
+	var nombre = document.getElementById("nombreAC").value;
+	var puntos = document.getElementById("puntosAC").value;
+	var armas = document.getElementById("armasAC").value;
 	
-    const datosJSON = JSON.stringify(datos);
+	var criminalData = {
+		"id": id,
+		"nombre": nombre,
+		"puntosDeHonor": puntos,
+		"armas": addArm(armas)
+	}
+	var jsonData = JSON.stringify(criminalData);
 	
-    fetch('http://localhost:8080/familia/integrantes/modificarCriminal', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: datosJSON
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Solicitud PUT exitosa:', data);
-      // Aquí puedes realizar acciones adicionales después de una respuesta exitosa
-    })
-    .catch(error => {
-      console.error('Error al realizar la solicitud PUT:', error);
-    });
-  }
-  
-  function agregarRespetable() {
-    const formulario = document.getElementById('agregarRespetable');
-	const formData = new FormData(formulario);
-    const datos = {}
-    formData.forEach((value, key) => {
-      datos[key] = value;
-    });
-    const datosJSON = JSON.stringify(datos)
-    fetch('http://localhost:8080/familia/integrantes/agregarRespetable', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: datosJSON
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Solicitud POST exitosa:', data);
-      // Aquí puedes realizar acciones adicionales después de una respuesta exitosa
-    })
-    .catch(error => {
-      console.error('Error al realizar la solicitud POST:', error);
-    });
-  }
-  
-    function modificarRespetable() {
-    const formulario = document.getElementById('modificarRespetable');
-    const formData = new FormData(formulario);
-    const datos = {};
-    formData.forEach((value, key) => {
-      datos[key] = value;
-    });
+	await axios.post("/familia/integrantes/agregarCriminal", jsonData)
+		.then(response => {console.log(response.data);
+		})
+		.catch(error => {
+			console.error("No se pudo obtener la lista:", error);
+		})
+}
+
+function agregarElements(newElement){
+	let lista = [];
+	lista.push(newElement);
+	return lista
+}
+
+async function agregarRespetable(){
 	
-    const datosJSON = JSON.stringify(datos);
+	var id = document.getElementById("idR").value;
+	var nombre = document.getElementById("nombreR").value;
+	var puntos = document.getElementById("puntos").value;
+	var titulos = document.getElementById("titulosR").value;
+	var cargoPolitico = document.getElementById("cargosR").checked;
 	
-    fetch('http://localhost:8080/familia/integrantes/modificarRespetable', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: datosJSON
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Solicitud PUT exitosa:', data);
-      // Aquí puedes realizar acciones adicionales después de una respuesta exitosa
-    })
-    .catch(error => {
-      console.error('Error al realizar la solicitud PUT:', error);
-    });
-  }
+	var respetableData = {
+		"id": id,
+		"nombre": nombre,
+		"puntos": puntos,
+		"titulos": agregarElements(titulos),
+		"cargos": cargoPolitico
+	}
+	 jsonData = JSON.stringify(respetableData);
+	
+	await axios.post("/familia/integrantes/agregarRespetable", jsonData)
+		.then(response => {console.log(response.data);
+		})
+		.catch(error => {
+			console.error("No se pudo obtener la lista:", error);
+		})
+}
+
+function eliminarIntegrante() {
+	
+			const idIntegrante = document.getElementById("idE").value;
+            axios.delete(`/familia/integrantes/eliminarIntegrante/${idIntegrante}`)
+                .then(response => {
+                    console.log(response.data);
+                    console.log("Se logro eliminar el integrante respetable");
+                    window.location.reload(); 
+                })
+                .catch(error => {
+                    console.error("Error al eliminar el integrante:", error);
+                    alert("Error al eliminar el integrante. Por favor, intentalo de nuevo.");
+                });
+        }
   

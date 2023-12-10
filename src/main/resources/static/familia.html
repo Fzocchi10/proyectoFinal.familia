@@ -4,14 +4,15 @@
 	<meta charset="utf-8">
 	<title>La Familia</title>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>	
 	<div class="header">
 		Bienvenido! En esta pagina podra ingresar, eliminar y modificar un integrante como 
 		tambien ver la lista
-		completa de integrantes
-		<h1>Usted que operacion desea realizar</h1>
+		completa de integrantes<br>
+		Usted que operacion desea realizar
 		
 	</div>
 
@@ -23,16 +24,16 @@
 			<h2>Agregar un criminal de la familia</h2>
 			<form id="agregarCriminal">
     			<label for="id">ID :</label>
-    			<input type="number" id="id" name="id" required><br><br>
+    			<input type="number" id="idAC" name="id"><br><br>
 
     			<label for="nombre">Nombre :</label>
-    			<input type="text" id="nombre" name="nombre" required><br><br>
+    			<input type="text" id="nombreAC" name="nombre"><br><br>
 
     			<label for="puntos">Puntos de Honor :</label>
-    			<input type="number" id="puntos" name="puntos" required><br><br>
+    			<input type="number" id="puntosAC" name="puntos"><br><br>
 
-    			<label for="armas">Armas :</label>
-    			<input type="text" id="armas" name="armas" required><br><br>
+    			<label for="armasCriminal">Armas:</label>
+				<input type"text" id="armasAC" name="armas"><br><br>
 
     			<button type="button" onclick="agregarCriminal()">Agregar</button>
   </form>
@@ -44,35 +45,23 @@
 				<form id="modificarCriminal">
 					<label for="id">ID :</label>
     				<input type="number" id="id" name="id" required><br><br>
-
     				<label for="nombre">Nombre :</label>
     				<input type="text" id="nombre" name="nombre" required><br><br>
 
     				<label for="puntos">Puntos de Honor :</label>
     				<input type="number" id="puntos" name="puntos" required><br><br>
 
-    				<label for="armas">Armas :</label>
-    				<input type="text" id="armas" name="armas" required><br><br>
+    				<label for="armasCriminalModificar">Armas:</label>
+                    <input type="text" id="armas" name="armas"><br><br>
+					
 				<button type="button" onclick="modificarCriminal()">Modificar</button>
 				</form>
 			</p>
 		</div>
 	
-		<div class="eliminarCriminal">
-			<h2>Eliminar criminal</h2>
-			<form id="eliminarCriminal">
-			
-			<label for="id">ID :</label>
-    		<input type="number" id="id" name="id" required><br><br>
-			
-			<br>
-			<button ="eliminalCriminal">Eliminar</button>
-			</form>
-		</div>
-	
 	</div>
 
-	<div class="integrante">
+<div class="integrante">
 	
 		<div class="agregarRespetable">
 			<p>
@@ -80,19 +69,19 @@
 			<form id="agregarRespetable">
 				
 				<label for="id">ID :</label>
-    			<input type="number" id="id" name="id" required><br><br>
+    			<input type="number" id="idR" name="id" required><br><br>
 
     			<label for="nombre">Nombre :</label>
-    			<input type="text" id="nombre" name="nombre" required><br><br>
+    			<input type="text" id="nombreR" name="nombre" required><br><br>
 
     			<label for="puntos">Puntos de Honor :</label>
-    			<input type="number" id="puntos" name="puntos" required><br><br>
+    			<input type="number" id="puntosR" name="puntos" required><br><br>
 				
 				<label for="titulos">Titulos:</label>					
-				<input type="text" id="titulos" name="titulos"><br>
+				<input type="text" id="titulosR" name="titulos"><br>
 				
 				<label for="cargos">Cargo Politico:</label>				 
-				<input type="checkbox" id="cargos" name"cargos"><br>
+				<input type="checkbox" id="cargosR" name"cargos"><br>
 				
 				<br>
 				<button type="button" onclick="agregarRespetable()">Agregar</button>
@@ -124,31 +113,29 @@
 			</form>
 			</p>
 		</div>
-
-	
-		<div class="eliminarRespetable">
-			<h2>Eliminar respetable</h2>
-			<form id="eliminarRespetable">
-			
-			<label for="eliminar"> Id: </label>							
-			<input type="int" class="idRespetable"><br>
-			
-			<br>
-			<button id="eliminarRespetable">Eliminar</button>
-			</form>
-		</div>
-	
-	</div>
+		
 	
 </div>
+<div class="eliminarIntegrante">
+			<h2>Eliminar Integrante</h2>
+			<form id="eliminarIntegrante">
+			
+			<label for="id">ID :</label>
+    		<input type="number" id="idE" name="idE"><br><br>
+			
+			<br>
+			<button onclick="eliminarIntegrante()">Eliminar</button>
+			</form>
+		</div>
 
-
-	<div class="footer">
+<div class="footer">
 		<h2> Obtener los integrantes de la familia</h2>
 	<br>
-		<button onclick="realizarSolicitud()">Enviar</button>
+		<button onclick="realizarSolicitud()" id"botonSolicitud"=>Enviar</button>
 	</div>
-
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
