@@ -13,6 +13,7 @@ public class RespetableDto {
 	protected Collection<TituloDto> titulos;
 	
 	
+	
 	public void setTitulos(Collection<TituloDto> titulos) {
 		this.titulos = titulos;
 	}
@@ -60,13 +61,18 @@ public class RespetableDto {
 
 	public RespetableDto() {}
 	
+	public Collection<TituloDto> getTitulos() {
+		return titulos;
+	}
+	
 	public Respetable toModel() {
-        Respetable respetable = new Respetable(this.id, this.nombre, this.puntosDeHonor, this.cargoPolitico);
-        if (this.titulos != null) {
-        	this.titulos.forEach( tituloDto -> {
-        		respetable.getTitulos().add(tituloDto.toModel());
-        	});
-        }
-        return respetable;
-    }
+		Respetable respetable = new Respetable(this.id, this.nombre, this.puntosDeHonor, this.cargoPolitico);
+		 if (this.titulos != null) {
+	        	this.titulos.forEach( tituloDto -> {
+	        		respetable.getTitulos().add(tituloDto.toModel());
+	        	});
+	        }
+	        return respetable;
+	}
+	
 }

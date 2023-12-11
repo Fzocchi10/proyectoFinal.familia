@@ -18,7 +18,7 @@ async function agregarCriminal(){
 		"id": id,
 		"nombre": nombre,
 		"puntosDeHonor": puntos,
-		"armas": addArm(armas)
+		"armas": [{"tipo": armas}]
 	}
 	var jsonData = JSON.stringify(criminalData);
 	
@@ -30,30 +30,70 @@ async function agregarCriminal(){
 		})
 }
 
-function agregarElements(newElement){
-	let lista = [];
-	lista.push(newElement);
-	return lista
-}
-
 async function agregarRespetable(){
 	
-	var id = document.getElementById("idR").value;
-	var nombre = document.getElementById("nombreR").value;
-	var puntos = document.getElementById("puntos").value;
-	var titulos = document.getElementById("titulosR").value;
-	var cargoPolitico = document.getElementById("cargosR").checked;
+	var id = document.getElementById("idAR").value;
+	var nombre = document.getElementById("nombreAR").value;
+	var puntos = document.getElementById("puntosAR").value;
+	var titulos = document.getElementById("titulosAR").value;
+	var cargoPolitico = document.getElementById("cargosAR").checked;
 	
 	var respetableData = {
-		"id": id,
 		"nombre": nombre,
-		"puntos": puntos,
-		"titulos": agregarElements(titulos),
-		"cargos": cargoPolitico
+		"puntosDeHonor": puntos,
+		"id": id,
+		"titulos": [{"descripcion" : titulos}],
+		"cargoPolitico": cargoPolitico
 	}
 	 jsonData = JSON.stringify(respetableData);
 	
 	await axios.post("/familia/integrantes/agregarRespetable", jsonData)
+		.then(response => {console.log(response.data);
+		})
+		.catch(error => {
+			console.error("No se pudo obtener la lista:", error);
+		})
+}
+
+async function modificarCriminal(){
+	var id = document.getElementById("idMC").value;
+	var nombre = document.getElementById("nombreMC").value;
+	var puntos = document.getElementById("puntosMC").value;
+	var armas = document.getElementById("armasMC").value;
+	
+	var criminalData = {
+		"id": id,
+		"nombre": nombre,
+		"puntosDeHonor": puntos,
+		"armas": [{"tipo": armas}]
+	}
+	var jsonData = JSON.stringify(criminalData);
+	
+	await axios.put("/familia/integrantes/modificarCriminal", jsonData)
+		.then(response => {console.log(response.data);
+		})
+		.catch(error => {
+			console.error("No se pudo obtener la lista:", error);
+		})
+}
+
+async function modificarRespetable(){
+	var id = document.getElementById("idMR").value;
+	var nombre = document.getElementById("nombreMR").value;
+	var puntos = document.getElementById("puntosMR").value;
+	var titulos = document.getElementById("titulosMR").value;
+	var cargoPolitico = document.getElementById("cargosMR").checked;
+	
+	var respetableData = {
+		"nombre": nombre,
+		"puntosDeHonor": puntos,
+		"id": id,
+		"titulos": [{"descripcion" : titulos}],
+		"cargoPolitico": cargoPolitico
+	}
+	 jsonData = JSON.stringify(respetableData);
+	
+	await axios.put("/familia/integrantes/modificarRespetable", jsonData)
 		.then(response => {console.log(response.data);
 		})
 		.catch(error => {
