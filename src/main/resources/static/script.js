@@ -20,9 +20,8 @@ async function agregarCriminal(){
 		"puntosDeHonor": puntos,
 		"armas": [{"tipo": armas}]
 	}
-	var jsonData = JSON.stringify(criminalData);
-	
-	await axios.post("/familia/integrantes/agregarCriminal", jsonData)
+
+	await axios.post("/familia/integrantes/agregarCriminal", criminalData)
 		.then(response => {console.log(response.data);
 		})
 		.catch(error => {
@@ -45,9 +44,8 @@ async function agregarRespetable(){
 		"titulos": [{"descripcion" : titulos}],
 		"cargoPolitico": cargoPolitico
 	}
-	 jsonData = JSON.stringify(respetableData);
 	
-	await axios.post("/familia/integrantes/agregarRespetable", jsonData)
+	await axios.post("/familia/integrantes/agregarRespetable", respetableData)
 		.then(response => {console.log(response.data);
 		})
 		.catch(error => {
@@ -67,9 +65,9 @@ async function modificarCriminal(){
 		"puntosDeHonor": puntos,
 		"armas": [{"tipo": armas}]
 	}
-	var jsonData = JSON.stringify(criminalData);
+
 	
-	await axios.put("/familia/integrantes/modificarCriminal", jsonData)
+	await axios.put("/familia/integrantes/modificarCriminal", criminalData)
 		.then(response => {console.log(response.data);
 		})
 		.catch(error => {
@@ -91,9 +89,8 @@ async function modificarRespetable(){
 		"titulos": [{"descripcion" : titulos}],
 		"cargoPolitico": cargoPolitico
 	}
-	 jsonData = JSON.stringify(respetableData);
 	
-	await axios.put("/familia/integrantes/modificarRespetable", jsonData)
+	await axios.put("/familia/integrantes/modificarRespetable", respetableData)
 		.then(response => {console.log(response.data);
 		})
 		.catch(error => {
